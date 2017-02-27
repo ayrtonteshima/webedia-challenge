@@ -20,7 +20,8 @@
         ],
         "psr-4": {
             "App\\": "app/",
-            "Webedia\\Repositories\\": "Webedia/Repositories/src/",
+            "App\\Models": "app/Models",
+            "Webedia\\Repositories\\": "Webedia/Repositories/src/"
         }
     },
     "autoload-dev": {
