@@ -2,31 +2,32 @@
 
 namespace Webedia\Repositories;
 
+use App\Models\Post;
 use Webedia\Repositories\Contracts\PostInterface;
 
 class PostRepository implements PostInterface {
   public function getAll()
   {
-    return 'all';
-  };
+    return Post::all();
+  }
 
   public function save($post)
   {
-    return 'save';
+    return Post::create($post);
   }
 
   public function update($id, $data) 
   {
-    return 'update';
+    return Post::where('id', $id)->update($data);
   }
 
   public function find($id)
   {
-    return 'find';
+    return Post::find($id);
   }
 
   public function delete($id)
   {
-    return 'delete';
+    return Post::find($id)->delete();
   }
 }

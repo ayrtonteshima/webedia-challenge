@@ -17,7 +17,7 @@ class PostController extends Controller
 
     public function index()
     {
-        //
+        dd($this->post->getAll());
     }
 
     public function create()
