@@ -13,7 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->bind(
+            'Webedia\Repositories\Contracts\PostInterface',
+            'Webedia\Repositories\PostRepositorie'
+        );
     }
 
     /**
