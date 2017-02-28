@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Webedia\Repositories\Contracts\PostInterface;
 
-
 class PostController extends Controller
 {
     private $post;
@@ -17,27 +16,16 @@ class PostController extends Controller
 
     public function index()
     {
-        dd($this->post->getAll());
-    }
-
-    public function create()
-    {
-        //
+        $message = 'Posts returned successfully.';
+        return $this->returnAPIJson($message, $this->post->getAll());
     }
 
     public function store(Request $request)
     {
-        //
-    }
+        $postData = $request->all();
+        $this->post->save($postData);
 
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
+        return $this->returnAPIJson('Post stored successfully.', array());
     }
 
     public function update(Request $request, $id)
@@ -48,5 +36,15 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function returnAPIJson($message, $result)
+    {
+      $data = array(
+          'statusCode'  => 200,
+          'message'     => $message,
+          'data'        => $result
+      );
+      return response()->json($data);
     }
 }
