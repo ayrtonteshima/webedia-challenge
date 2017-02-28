@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Webedia\Repositories\Contracts\PostInterface;
+use Validator;
 
 class PostController extends Controller
 {
@@ -23,6 +24,19 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $postData = $request->all();
+
+        $validator = Validator::make($postData, [
+            'title' => 'required|min:3',
+            'subtitle' => 'required|min:3',
+            'description' => 'required|min:3',
+            'text' => 'required|min:5'
+        ]);
+
+        if ($validator->fails()) {
+            $messagesError = $validator->errors()->all();
+            return $this->returnAPIJson('Bad request.', $messagesError, 400);          
+        }
+
         $this->post->save($postData);
 
         return $this->returnAPIJson('Post stored successfully.', array());
@@ -38,10 +52,10 @@ class PostController extends Controller
         //
     }
 
-    private function returnAPIJson($message, $result)
+    private function returnAPIJson($message, $result, $statusCode = 200)
     {
       $data = array(
-          'statusCode'  => 200,
+          'statusCode'  => $statusCode,
           'message'     => $message,
           'data'        => $result
       );
