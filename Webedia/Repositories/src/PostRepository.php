@@ -8,7 +8,7 @@ use Webedia\Repositories\Contracts\PostInterface;
 class PostRepository implements PostInterface {
   public function getAll()
   {
-    return Post::all();
+    return Post::all()->toArray();
   }
 
   public function save($post)
@@ -23,7 +23,7 @@ class PostRepository implements PostInterface {
 
   public function find($id)
   {
-    return Post::find($id);
+    return Post::find($id)->toArray();
   }
 
   public function delete($id)
