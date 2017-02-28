@@ -130,6 +130,35 @@ table {
   border-spacing: 0;
 }
 
-body {
-  color: green;
+.container,
+.container__login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container__login {
+  padding: 20px;
+  background-color: rgba(6, 130, 177, 0.13);
+  border-radius: 10px;
+  border: 1px solid rgba(6, 130, 177, 0.2);
+  margin-top: 20px;
+}
+
+.container strong {
+  font: normal 14px Helvetica, arial, tahoma;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container a {
+  margin-top: 10px;
 }

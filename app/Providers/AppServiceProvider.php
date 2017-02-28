@@ -17,6 +17,11 @@ class AppServiceProvider extends ServiceProvider
             'Webedia\Repositories\Contracts\PostInterface',
             'Webedia\Repositories\PostRepository'
         );
+
+        $this->app->bind(
+            'Webedia\Repositories\Contracts\UserInterface',
+            'Webedia\Repositories\UserRepository'
+        );
     }
 
     /**

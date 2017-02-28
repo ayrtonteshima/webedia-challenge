@@ -1,0 +1,26 @@
+@import "defaults/all";
+
+.container {
+  &,&__login {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__login {
+    padding: 20px;
+    background-color: rgba(6, 130, 177, 0.13);
+    border-radius: 10px;
+    border: 1px solid rgba(6, 130, 177, 0.2);
+    margin-top: 20px;
+  }
+
+  strong {
+    font: normal 14px Helvetica, arial, tahoma;
+    display: flex;
+  }
+
+  a {
+    margin-top: 10px;
+  }
+}
