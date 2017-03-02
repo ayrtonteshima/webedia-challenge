@@ -15,6 +15,11 @@ Route::get('login/google/callback', [
   'uses' => 'Auth\LoginController@handleProviderCallback'
 ]);
 
+Route::get('logout', [
+  'as' => 'admin.logout',
+  'uses' => 'Auth\LoginController@logout'
+]);
+
 Route::group(['middleware' => 'auth'], function() {
   Route::get('admin', [
     'as' => 'admin.index',

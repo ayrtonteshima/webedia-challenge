@@ -30,6 +30,15 @@ class LoginController extends Controller
         return view('admin.login');
     }
 
+    public function logout()
+    {
+        if (\Auth::check()) {
+            \Auth::logout();
+        }
+        
+        return redirect('/');
+    }
+
     public function redirectToProvider()
     {
         return \Socialite::driver('google')->redirect();

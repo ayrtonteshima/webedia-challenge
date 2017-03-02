@@ -39,7 +39,7 @@ class PostController extends Controller
 
         $this->post->save($postData);
 
-        return $this->returnAPIJson('Post stored successfully.', array());
+        return $this->returnAPIJson('Post stored successfully.', $postData);
     }
 
     public function update(Request $request, $id)
