@@ -1,5 +1,10 @@
 <?php
 
+Route::get('/', [
+  'as' =>'home',
+  'uses' => 'HomeController@index'
+]);
+
 Route::get('login', [
   'as' => 'login.form',
   'uses' => 'Auth\LoginController@login'
