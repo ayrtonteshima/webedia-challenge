@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "./";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 33);
+/******/ 	return __webpack_require__(__webpack_require__.s = 32);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -82,20 +82,12 @@
 
 /***/ }),
 
-/***/ 12:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 33:
+/***/ 32:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(9);
 __webpack_require__(10);
-__webpack_require__(11);
-module.exports = __webpack_require__(12);
+module.exports = __webpack_require__(11);
 
 
 /***/ }),
@@ -103,7 +95,16 @@ module.exports = __webpack_require__(12);
 /***/ 9:
 /***/ (function(module, exports) {
 
+var menuHeader = document.querySelector('.webedia__header__menu');
+var btnMenuHeader = menuHeader.querySelector('.webedia__header__menu__btn');
+var body = document.getElementsByTagName('body')[0];
 
+var handlerBtnMenuHeaderClick = function handlerBtnMenuHeaderClick(event) {
+  body.classList.toggle('opened');
+  menuHeader.classList.toggle('webedia__header__menu--opened');
+};
+
+btnMenuHeader.addEventListener('click', handlerBtnMenuHeaderClick);
 
 /***/ })
 

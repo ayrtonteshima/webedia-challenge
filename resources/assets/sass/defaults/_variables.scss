@@ -1,0 +1,19 @@
+$primaryColor: #fc6c1d;
+
+$webedia__desktop: (
+  columns: 12,
+  gutter: 20px,
+  media: 1000px,
+);
+
+$webedia__tablet: (
+  columns: 12,
+  gutter: 20px,
+  media: 600px,
+);
+
+$webedia__mobile: (
+  columns: 4,
+  gutter: 20px,
+  media: 320px,
+);

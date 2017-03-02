@@ -1,0 +1,89 @@
+.webedia {
+  &__header {
+    &__logo {
+      margin: 10px 0;
+      text-align: right;
+      padding: 0 15px;
+      @include grid-media($webedia__tablet) {
+        margin: 20px 0;
+        text-align: center;
+      }
+      a {
+        display: inline-block;
+      }
+    }
+
+    &__menu {
+      box-sizing: border-box;
+      padding: 10px;
+      &__btn {
+        content: "";
+        background: #ff783e url('/imgs/hamburguer-menu-icon.png') no-repeat center center;
+        background-size: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        color: #fff;
+        display: block;
+        position: absolute;
+        right: -55px;
+        outline: 0;
+        border: 0;
+        &:focus, &:active {
+          outline: 0;
+          border: 0;
+        }
+        @include grid-media($webedia__tablet) {
+          display: none;
+        }
+      }
+      @include grid-media($webedia__mobile) {
+        width: 250px;
+        height: 100vh;
+        position: fixed;
+        left: -250px;
+        top: 0;
+        background-color: #f0f0f0;
+        transition: left .3s ease;
+        &.webedia__header__menu--opened {
+          left: 0;
+        }
+
+        &__item {
+          display: block;
+          margin-top: 15px;
+          margin-bottom: 15px;
+          cursor: pointer;
+          &:hover {
+            color: $primaryColor;
+          }
+        }
+      }
+
+      @include grid-media($webedia__tablet) {
+        width: 100%;
+        height: auto;
+        position: static;
+        background-color: #FFF;
+        font-family: 'Poppins';
+        box-shadow: 0 1px 8px rgba(0, 0, 0, .1);
+        &__container {
+          display: flex;
+          justify-content: space-between;
+        }
+        &__item {
+          display: inline-block;
+          margin: 0;
+          font-weight: 500;
+        }
+      }
+
+      &__item {
+        font-size: 0.6875rem;
+        text-transform: uppercase;
+        color: #666;
+        text-decoration: none;
+      }
+    }
+  }
+}

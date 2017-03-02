@@ -1,0 +1,23 @@
+body {
+  background-color: #f0f0f0;
+  position: relative;
+  left: 0;
+  transition: left .3s ease;
+  &.opened {
+    left: 250px;
+  }
+}
+
+html, body {
+  font: normal 90% arial, tahoma;
+  @include grid-media($webedia__tablet) {
+    font-size: 100%;
+  }
+}
+
+.webedia__container {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: auto;
+}

@@ -1,0 +1,423 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.webedia__header__logo {
+  margin: 10px 0;
+  text-align: right;
+  padding: 0 15px;
+}
+
+@media only screen and (min-width: 600px) {
+  .webedia__header__logo {
+    margin: 20px 0;
+    text-align: center;
+  }
+}
+
+.webedia__header__logo a {
+  display: inline-block;
+}
+
+.webedia__header__menu {
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.webedia__header__menu__btn {
+  content: "";
+  background: #ff783e url("/imgs/hamburguer-menu-icon.png") no-repeat center center;
+  background-size: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  color: #fff;
+  display: block;
+  position: absolute;
+  right: -55px;
+  outline: 0;
+  border: 0;
+}
+
+.webedia__header__menu__btn:focus,
+.webedia__header__menu__btn:active {
+  outline: 0;
+  border: 0;
+}
+
+@media only screen and (min-width: 600px) {
+  .webedia__header__menu__btn {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 320px) {
+  .webedia__header__menu {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    left: -250px;
+    top: 0;
+    background-color: #f0f0f0;
+    -webkit-transition: left .3s ease;
+    transition: left .3s ease;
+  }
+
+  .webedia__header__menu.webedia__header__menu--opened {
+    left: 0;
+  }
+
+  .webedia__header__menu__item {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+  }
+
+  .webedia__header__menu__item:hover {
+    color: #fc6c1d;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .webedia__header__menu {
+    width: 100%;
+    height: auto;
+    position: static;
+    background-color: #FFF;
+    font-family: 'Poppins';
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .webedia__header__menu__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+
+  .webedia__header__menu__item {
+    display: inline-block;
+    margin: 0;
+    font-weight: 500;
+  }
+}
+
+.webedia__header__menu__item {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  color: #666;
+  text-decoration: none;
+}
+
+body {
+  background-color: #f0f0f0;
+  position: relative;
+  left: 0;
+  -webkit-transition: left .3s ease;
+  transition: left .3s ease;
+}
+
+body.opened {
+  left: 250px;
+}
+
+html,
+body {
+  font: normal 90% arial, tahoma;
+}
+
+@media only screen and (min-width: 600px) {
+  html,
+  body {
+    font-size: 100%;
+  }
+}
+
+.webedia__container {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: auto;
+}
+
+.webedia__content {
+  font-size: 0.75rem;
+}
+
+.webedia__posts {
+  margin-left: -20px;
+  margin-right: -20px;
+  width: calc(100% + 40px);
+}
+
+.webedia__post {
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+  width: calc(100% - 40px);
+  float: left;
+  margin-left: 20px;
+}
+
+@media only screen and (min-width: 600px) {
+  .webedia__post {
+    width: calc(50% - 30px);
+    float: left;
+    margin-left: 20px;
+  }
+
+  .webedia__post__subtitle,
+  .webedia__post__texts,
+  .webedia__post__detail-separator {
+    display: none;
+  }
+
+  .webedia__post--main {
+    width: calc(100% - 40px);
+    float: left;
+    margin-left: 20px;
+  }
+
+  .webedia__post--main .webedia__post__subtitle,
+  .webedia__post--main .webedia__post__texts,
+  .webedia__post--main .webedia__post__detail-separator {
+    display: block;
+  }
+
+  .webedia__post--main .webedia__post__img::before {
+    content: "";
+    display: block;
+    border-width: 40px;
+    border-color: transparent;
+    border-style: solid;
+    border-top-width: 40px;
+    border-top-color: #fc6c1d;
+    position: absolute;
+    top: 0;
+    right: -40px;
+  }
+
+  .webedia__post--main .webedia__post__img::after {
+    width: 16px;
+    height: 16px;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent url("/imgs/zoom-in.png") no-repeat center center;
+  }
+}
+
+.webedia__post a {
+  text-decoration: none;
+}
+
+.webedia__post__title,
+.webedia__post__subtitle {
+  color: #fc6c1d;
+}
+
+.webedia__post__title {
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  font-weight: normal;
+}
+
+.webedia__post__subtitle {
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  margin-top: 15px;
+}
+
+.webedia__post__subtitle,
+.webedia__post__texts {
+  text-align: center;
+}
+
+.webedia__post__description,
+.webedia__post__texts {
+  color: #666;
+  font-size: 0.875rem;
+}
+
+.webedia__post__description {
+  margin-top: 5px;
+}
+
+.webedia__post__texts {
+  line-height: 1.4rem;
+  margin-top: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+  .webedia__post__texts {
+    margin-top: 30px;
+  }
+}
+
+.webedia__post__img {
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.webedia__post__img img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media only screen and (min-width: 600px) {
+  .webedia__post__img {
+    margin-top: 30px;
+  }
+}
+
+.webedia__post__detail-separator {
+  border-color: #fc6c1d;
+  border-width: 1px;
+  border-top: 0;
+  outline: 0;
+  width: 165px;
+  margin: 10px auto 0;
+}
+
+@media only screen and (min-width: 600px) {
+  .webedia__post__detail-separator {
+    margin-top: 30px;
+  }
+}
