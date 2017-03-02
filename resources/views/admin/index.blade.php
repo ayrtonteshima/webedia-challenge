@@ -36,6 +36,10 @@
               {!! Form::text('subtitle', null, array('id' => 'subtitle', 'class' => 'form-control')) !!}
             </div>
             <div class="form-group">
+              <label for="image">Image URL</label>
+              {!! Form::text('image', null, array('id' => 'image', 'class' => 'form-control')) !!}
+            </div>
+            <div class="form-group">
               <label for="description">Description</label>
               {!! Form::textarea('description', null, array('id' => 'description', 'class' => 'form-control', 'rows' => 5)) !!}
             </div>

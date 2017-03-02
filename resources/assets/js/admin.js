@@ -7,6 +7,7 @@ const getValue = el => formPosts.querySelector(el).value;
 const getFormFieldValues = () => ({
   title: getValue('#title'),
   subtitle: getValue('#subtitle'),
+  image: getValue('#image'),
   description: getValue('#description'),
   text: getValue('#text')
 });
@@ -21,7 +22,7 @@ const clearInputsForm = () => {
 
 const appendNewPostInList = ({ data }) => {
   const tr = `<tr><td>${data.title}</td></tr>`;
-  const tbody = formPosts.querySelector('#posts_list_table tbody');
+  const tbody = document.querySelector('#posts_list_table tbody');
   tbody.innerHTML = tbody.innerHTML + tr;
 };
 
@@ -33,7 +34,8 @@ const handleCallbackFormPost = ({ data }) => {
   appendNewPostInList(data);
 };
 
-const handleErrorFormPost = () => {
+const handleErrorFormPost = (e) => {
+  console.log(e);
   alert("Ops... ");
 };
 

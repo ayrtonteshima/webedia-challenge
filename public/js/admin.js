@@ -945,6 +945,7 @@ var getFormFieldValues = function getFormFieldValues() {
   return {
     title: getValue('#title'),
     subtitle: getValue('#subtitle'),
+    image: getValue('#image'),
     description: getValue('#description'),
     text: getValue('#text')
   };
@@ -960,7 +961,7 @@ var appendNewPostInList = function appendNewPostInList(_ref) {
   var data = _ref.data;
 
   var tr = '<tr><td>' + data.title + '</td></tr>';
-  var tbody = formPosts.querySelector('#posts_list_table tbody');
+  var tbody = document.querySelector('#posts_list_table tbody');
   tbody.innerHTML = tbody.innerHTML + tr;
 };
 
@@ -976,7 +977,8 @@ var handleCallbackFormPost = function handleCallbackFormPost(_ref2) {
   appendNewPostInList(data);
 };
 
-var handleErrorFormPost = function handleErrorFormPost() {
+var handleErrorFormPost = function handleErrorFormPost(e) {
+  console.log(e);
   alert("Ops... ");
 };
 

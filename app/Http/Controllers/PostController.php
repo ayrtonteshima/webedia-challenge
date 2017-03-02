@@ -29,7 +29,8 @@ class PostController extends Controller
             'title' => 'required|min:3',
             'subtitle' => 'required|min:3',
             'description' => 'required|min:3',
-            'text' => 'required|min:5'
+            'text' => 'required|min:5',
+            'image' => 'required|min:10'
         ]);
 
         if ($validator->fails()) {
