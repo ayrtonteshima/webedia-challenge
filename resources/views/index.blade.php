@@ -35,54 +35,22 @@
           </header>
           <section class="webedia__content webedia__container">
             <div class="webedia__posts">
-              <article class="webedia__post webedia__post--main">
+              @foreach($posts as $k => $post)
+              <article class="webedia__post {!! $k === 0 ? 'webedia__post--main' : '' !!}">
                 <a href="#" title="Visualizar post">
-                  <h3 class="webedia__post__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
-                  <p class="webedia__post__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat scelerisque cursus. Vivamus sodales facilisis risus sed aliquam. Donec eget blandit erat, vel vulputate ante. Nunc pretium vel neque a facilisis.</p>
+                  <h3 class="webedia__post__title">{{ $post['title'] }}</h3>
+                  <p class="webedia__post__description">{{ $post['description'] }}</p>
                   <div class="webedia__post__img">
-                    <img src="http://lorempixel.com/1000/485" alt="" />
+                    <img src="{{ $post['image'] }}" alt="" />
                   </div>
                   <hr class="webedia__post__detail-separator">
-                  <h4 class="webedia__post__subtitle">Pellentesque et mi sed justo varius tempus sed vitae nunc</h4>
+                  <h4 class="webedia__post__subtitle">{{ $post['subtitle'] }}</h4>
                   <div class="webedia__post__texts">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti quas, esse laudantium, laborum numquam voluptatibus quibusdam libero voluptatum cum temporibus laboriosam veniam quis autem perspiciatis quam. Sint iusto modi assumenda.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti quas, esse laudantium, laborum numquam voluptatibus quibusdam libero voluptatum cum temporibus laboriosam veniam quis autem perspiciatis quam. Sint iusto modi assumenda.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti quas, esse laudantium, laborum numquam voluptatibus quibusdam libero voluptatum cum temporibus laboriosam veniam quis autem perspiciatis quam. Sint iusto modi assumenda.</p>
+                    <p>{{ $post['text'] }}</p>
                   </div>
                 </a>
               </article>
-              <article class="webedia__post webedia__post">
-                <a href="#" title="Visualizar post">
-                  <h3 class="webedia__post__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
-                  <p class="webedia__post__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat scelerisque cursus. Vivamus sodales facilisis risus sed aliquam. Donec eget blandit erat, vel vulputate ante. Nunc pretium vel neque a facilisis.</p>
-                  <div class="webedia__post__img">
-                    <img src="http://lorempixel.com/1000/485" alt="">
-                  </div>
-                  <hr class="webedia__post__detail-separator">
-                  <h4 class="webedia__post__subtitle">Pellentesque et mi sed justo varius tempus sed vitae nunc</h4>
-                  <div class="webedia__post__texts">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti quas, esse laudantium, laborum numquam voluptatibus quibusdam libero voluptatum cum temporibus laboriosam veniam quis autem perspiciatis quam. Sint iusto modi assumenda.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti quas, esse laudantium, laborum numquam voluptatibus quibusdam libero voluptatum cum temporibus laboriosam veniam quis autem perspiciatis quam. Sint iusto modi assumenda.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti quas, esse laudantium, laborum numquam voluptatibus quibusdam libero voluptatum cum temporibus laboriosam veniam quis autem perspiciatis quam. Sint iusto modi assumenda.</p>
-                  </div>
-                </a>
-              </article>
-              <article class="webedia__post webedia__post">
-                <a href="#" title="Visualizar post">
-                  <h3 class="webedia__post__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
-                  <p class="webedia__post__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat scelerisque cursus. Vivamus sodales facilisis risus sed aliquam. Donec eget blandit erat, vel vulputate ante. Nunc pretium vel neque a facilisis.</p>
-                  <div class="webedia__post__img">
-                    <img src="http://lorempixel.com/1000/485" alt="">
-                  </div>
-                  <hr class="webedia__post__detail-separator">
-                  <h4 class="webedia__post__subtitle">Pellentesque et mi sed justo varius tempus sed vitae nunc</h4>
-                  <div class="webedia__post__texts">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti quas, esse laudantium, laborum numquam voluptatibus quibusdam libero voluptatum cum temporibus laboriosam veniam quis autem perspiciatis quam. Sint iusto modi assumenda.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti quas, esse laudantium, laborum numquam voluptatibus quibusdam libero voluptatum cum temporibus laboriosam veniam quis autem perspiciatis quam. Sint iusto modi assumenda.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti quas, esse laudantium, laborum numquam voluptatibus quibusdam libero voluptatum cum temporibus laboriosam veniam quis autem perspiciatis quam. Sint iusto modi assumenda.</p>
-                  </div>
-                </a>
-              </article>
+              @endforeach
             </div>
           </section>
         </div>

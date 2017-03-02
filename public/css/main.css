@@ -196,10 +196,12 @@ table {
   }
 
   .webedia__header__menu__item {
+    font-size: 0.8rem;
     display: block;
-    margin-top: 15px;
-    margin-bottom: 15px;
     cursor: pointer;
+    margin: 0;
+    padding: 15px 0;
+    border-bottom: 1px solid #666;
   }
 
   .webedia__header__menu__item:hover {
@@ -227,14 +229,18 @@ table {
   }
 
   .webedia__header__menu__item {
+    font-size: 0.6875rem;
     display: inline-block;
     margin: 0;
     font-weight: 500;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 0;
+    padding: 0;
   }
 }
 
 .webedia__header__menu__item {
-  font-size: 0.6875rem;
   text-transform: uppercase;
   color: #666;
   text-decoration: none;
