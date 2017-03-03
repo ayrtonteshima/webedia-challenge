@@ -368,6 +368,11 @@ body.opened .webedia::after {
     display: none;
   }
 
+  .webedia__post:hover .webedia__post__img img {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+
   .webedia__post--main {
     width: calc(100% - 40px);
     float: left;
@@ -396,6 +401,7 @@ body.opened .webedia::after {
     position: absolute;
     top: 0;
     right: -40px;
+    z-index: 1;
   }
 
   .webedia__post--main .webedia__post__img::after {
@@ -406,6 +412,7 @@ body.opened .webedia::after {
     position: absolute;
     top: 5px;
     right: 5px;
+    z-index: 2;
     background: transparent url("/imgs/zoom-in.png") no-repeat center center;
   }
 }
@@ -479,6 +486,13 @@ body.opened .webedia::after {
 .webedia__post__img img {
   max-width: 100%;
   height: auto;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: -webkit-transform .3s ease;
+  transition: -webkit-transform .3s ease;
+  transition: transform .3s ease;
+  transition: transform .3s ease, -webkit-transform .3s ease;
+  z-index: 0;
 }
 
 .webedia__post__detail-separator {

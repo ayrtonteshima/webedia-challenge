@@ -21,7 +21,14 @@
       &__texts,
       &__detail-separator {
         display: none;
-      } 
+      }
+      &:hover {
+        .webedia__post__img {
+          img {
+            transform: scale(1.1);
+          }
+        }
+      }
       &--main {
         @include grid-column(12);
         .webedia__post {
@@ -48,6 +55,7 @@
               position: absolute;
               top: 0;
               right: -40px;
+              z-index: 1;
             }
             &::after {
               width: 16px;
@@ -57,6 +65,7 @@
               position: absolute;
               top: 5px;
               right: 5px;
+              z-index: 2;
               background: transparent url('/imgs/zoom-in.png') no-repeat center center;
             }
           }
@@ -119,6 +128,9 @@
       img {
         max-width: 100%;
         height: auto;
+        transform: scale(1);
+        transition: transform .3s ease;
+        z-index: 0;
       }
     }
 
