@@ -27,28 +27,37 @@
         </div>
         <div class="panel-body">
           {!! Form::open(array('route' => 'posts.store', 'id' => 'form_posts')) !!}
-            <div class="form-group">
-              <label for="title">Title</label>
-              {!! Form::text('title', null, array('id' => 'title', 'class' => 'form-control')) !!}
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="container-errors"></div>
+              <div class="container-success"></div>
             </div>
-            <div class="form-group">
-              <label for="subtitle">Subtitle</label>
-              {!! Form::text('subtitle', null, array('id' => 'subtitle', 'class' => 'form-control')) !!}
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+              <div class="form-group">
+                <label for="title">Title</label>
+                {!! Form::text('title', null, array('id' => 'title', 'class' => 'form-control')) !!}
+              </div>
+              <div class="form-group">
+                <label for="subtitle">Subtitle</label>
+                {!! Form::text('subtitle', null, array('id' => 'subtitle', 'class' => 'form-control')) !!}
+              </div>
+              <div class="form-group">
+                <label for="image">Image URL</label>
+                {!! Form::text('image', null, array('id' => 'image', 'class' => 'form-control')) !!}
+              </div>
+              <div class="form-group">
+                <label for="description">Description</label>
+                {!! Form::textarea('description', null, array('id' => 'description', 'class' => 'form-control', 'rows' => 5)) !!}
+              </div>
             </div>
-            <div class="form-group">
-              <label for="image">Image URL</label>
-              {!! Form::text('image', null, array('id' => 'image', 'class' => 'form-control')) !!}
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+              <div class="form-group">
+                <label for="text">Text</label>
+                {!! Form::textarea('text', null, array('id' => 'text', 'class' => 'form-control', 'rows' => 16)) !!}
+              </div>
             </div>
-            <div class="form-group">
-              <label for="description">Description</label>
-              {!! Form::textarea('description', null, array('id' => 'description', 'class' => 'form-control', 'rows' => 5)) !!}
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right">
+              <button type="submit" class="btn btn-primary">Save</button>
             </div>
-            <div class="form-group">
-              <label for="text">Text</label>
-              {!! Form::textarea('text', null, array('id' => 'text', 'class' => 'form-control', 'rows' => 15)) !!}
-            </div>
-          
-            <button type="submit" class="btn btn-primary">Salvar</button>
           {!! Form::close() !!}
         </div>
       </div>

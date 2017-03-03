@@ -318,10 +318,15 @@ body {
     margin-left: 20px;
   }
 
+  .webedia__post--main .webedia__post__description,
   .webedia__post--main .webedia__post__subtitle,
   .webedia__post--main .webedia__post__texts,
   .webedia__post--main .webedia__post__detail-separator {
     display: block;
+  }
+
+  .webedia__post--main .webedia__post__title {
+    height: auto;
   }
 
   .webedia__post--main .webedia__post__img::before {
@@ -360,8 +365,15 @@ body {
 
 .webedia__post__title {
   text-transform: uppercase;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: normal;
+}
+
+@media only screen and (min-width: 600px) {
+  .webedia__post__title {
+    height: 35px;
+    overflow: hidden;
+  }
 }
 
 .webedia__post__subtitle {
@@ -385,6 +397,12 @@ body {
   margin-top: 5px;
 }
 
+@media only screen and (min-width: 600px) {
+  .webedia__post__description {
+    display: none;
+  }
+}
+
 .webedia__post__texts {
   line-height: 1.4rem;
   margin-top: 10px;
@@ -405,12 +423,6 @@ body {
 .webedia__post__img img {
   max-width: 100%;
   height: auto;
-}
-
-@media only screen and (min-width: 600px) {
-  .webedia__post__img {
-    margin-top: 30px;
-  }
 }
 
 .webedia__post__detail-separator {

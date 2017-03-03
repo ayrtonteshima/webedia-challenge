@@ -933,6 +933,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__(30);
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 
 
 var formPosts = document.getElementById('form_posts');
@@ -966,26 +968,94 @@ var appendNewPostInList = function appendNewPostInList(_ref) {
 };
 
 var showSuccessMessage = function showSuccessMessage() {
-  return alert("Post created successfully!");
-};
-
-var handleCallbackFormPost = function handleCallbackFormPost(_ref2) {
-  var data = _ref2.data;
-
-  clearInputsForm();
-  showSuccessMessage();
-  appendNewPostInList(data);
+  var HTMLMessage = '<div class="alert alert-success">Post created successfully!</div>';
+  document.querySelector('.container-success').innerHTML = HTMLMessage;
 };
 
 var handleErrorFormPost = function handleErrorFormPost(e) {
-  console.log(e);
   alert("Ops... ");
+};
+
+var isGreatherThan = function isGreatherThan(len) {
+  return function (val) {
+    return len < val.trim().length;
+  };
+};
+
+var validationRules = [{
+  field: 'title',
+  validations: [[isGreatherThan(3), 'Minimum Title length of 3 is required.']]
+}, {
+  field: 'subtitle',
+  validations: [[isGreatherThan(3), 'Minimum Name length of 3 is required.']]
+}, {
+  field: 'image',
+  validations: [[isGreatherThan(10), 'Minimum Image length of 10 is required.']]
+}, {
+  field: 'description',
+  validations: [[isGreatherThan(10), 'Minimum Description length of 10 is required.']]
+}, {
+  field: 'text',
+  validations: [[isGreatherThan(10), 'Minimum Text length of 10 is required.']]
+}];
+
+var makeValidations = function makeValidations(input, validationRules) {
+  return validationRules.map(function (rule) {
+    return rule.validations.map(function (_ref2) {
+      var _ref3 = _slicedToArray(_ref2, 2),
+          test = _ref3[0],
+          msgError = _ref3[1];
+
+      return !test(input[rule.field]) ? msgError : null;
+    });
+  }).filter(function (errors) {
+    return errors.filter(function (e) {
+      return !!e;
+    }).length > 0;
+  });
+};
+
+var getHTMLErrorMessages = function getHTMLErrorMessages(errors) {
+  if (errors.length <= 0) return null;
+  return '<div class="alert alert-danger">\n      ' + errors.map(function (error) {
+    return error.join('</div><div class="alert alert-danger">');
+  }).join('</div><div class="alert alert-danger">') + '\n    </div>';
+};
+
+var showErrorMessages = function showErrorMessages(errorMessagesHTML) {
+  document.querySelector('.container-success').innerHTML = '';
+  document.querySelector('.container-errors').innerHTML = errorMessagesHTML;
+};
+
+var hideErrorMessages = function hideErrorMessages() {
+  document.querySelector('.container-errors').innerHTML = '';
+};
+
+var handleErrorsValidation = function handleErrorsValidation() {
+  var errors = makeValidations(getFormFieldValues(), validationRules);
+  if (errors.length > 0) {
+    showErrorMessages(getHTMLErrorMessages(errors));
+    return false;
+  }
+  return true;
+};
+
+var handleCallbackFormPost = function handleCallbackFormPost(_ref4) {
+  var data = _ref4.data;
+
+  clearInputsForm();
+  showSuccessMessage();
+  hideErrorMessages();
+  appendNewPostInList(data);
 };
 
 var handleSubmitFormPosts = function handleSubmitFormPosts(event) {
   event.preventDefault();
+  event.stopPropagation();
 
-  __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post(__WEBPACK_IMPORTED_MODULE_1__routes__["a" /* posts */].STORE, getFormFieldValues()).then(handleCallbackFormPost).catch(handleErrorFormPost);
+  if (handleErrorsValidation()) {
+    __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post(__WEBPACK_IMPORTED_MODULE_1__routes__["a" /* posts */].STORE, getFormFieldValues()).then(handleCallbackFormPost).catch(handleErrorFormPost);
+  }
 };
 
 formPosts.addEventListener('submit', handleSubmitFormPosts, false);

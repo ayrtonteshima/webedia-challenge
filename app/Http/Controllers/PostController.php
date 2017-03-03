@@ -28,8 +28,8 @@ class PostController extends Controller
         $validator = Validator::make($postData, [
             'title' => 'required|min:3',
             'subtitle' => 'required|min:3',
-            'description' => 'required|min:3',
-            'text' => 'required|min:5',
+            'description' => 'required|min:10',
+            'text' => 'required|min:10',
             'image' => 'required|min:10'
         ]);
 

@@ -8,7 +8,7 @@ use Webedia\Repositories\Contracts\PostInterface;
 class PostRepository implements PostInterface {
   public function getAll()
   {
-    return Post::all()->toArray();
+    return Post::orderBy('created_at', 'DESC')->get()->toArray();
   }
 
   public function save($post)

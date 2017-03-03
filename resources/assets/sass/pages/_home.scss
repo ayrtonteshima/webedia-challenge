@@ -25,11 +25,17 @@
       &--main {
         @include grid-column(12);
         .webedia__post {
+          &__description,
           &__subtitle,
           &__texts,
           &__detail-separator {
             display: block;
           }
+          
+          &__title {
+            height: auto;
+          }
+
           &__img {
             &::before {
               content: "";
@@ -68,8 +74,12 @@
 
     &__title {
       text-transform: uppercase;
-      font-size: 1.25rem;
+      font-size: 1rem;
       font-weight: normal;
+      @include grid-media($webedia__tablet) {
+        height: 35px;
+        overflow: hidden;
+      }
     }
 
     &__subtitle {
@@ -89,6 +99,9 @@
 
     &__description {
       margin-top: 5px;
+      @include grid-media($webedia__tablet) {
+        display: none;
+      }
     }
 
     &__texts {
@@ -106,9 +119,6 @@
       img {
         max-width: 100%;
         height: auto;
-      }
-      @include grid-media($webedia__tablet) {
-        margin-top: 30px;
       }
     }
 
