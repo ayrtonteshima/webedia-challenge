@@ -10,15 +10,15 @@
         <link rel="stylesheet" href="{!! asset('css/main.css') !!}">
     </head>
     <body>
-        <div class="webedia webedia__home">
+        <div class="webedia">
           <header class="webedia__header">
             <h1 class="webedia__header__logo">
               <a href="{!! route('home') !!}" title="Página principal">
                 <img src="{!! asset('imgs/webedia-logo.jpg') !!}" alt="Webedia group">
               </a>
             </h1>
+            <button class="webedia__header__menu__btn" type="button"></button>
             <div class="webedia__header__menu">
-              <button class="webedia__header__menu__btn" type="button"></button>
               <nav class="webedia__header__menu__container webedia__container">
                 <a href="#" title="link 1" class="webedia__header__menu__item">Link 1</a>
                 <a href="#" title="link 2" class="webedia__header__menu__item">Link 2</a>
@@ -33,7 +33,7 @@
               </nav>
             </div>
           </header>
-          <section class="webedia__content webedia__container">
+          <section class="webedia__content webedia__container webedia__home">
             <div class="webedia__posts">
               @foreach($posts as $k => $post)
               <article class="webedia__post {!! $k === 0 ? 'webedia__post--main' : '' !!}">

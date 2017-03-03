@@ -1,5 +1,5 @@
 const menuHeader = document.querySelector('.webedia__header__menu');
-const btnMenuHeader = menuHeader.querySelector('.webedia__header__menu__btn');
+const btnMenuHeader = document.querySelector('.webedia__header__menu__btn');
 const body = document.getElementsByTagName('body')[0];
 
 const handlerBtnMenuHeaderClick = event => {

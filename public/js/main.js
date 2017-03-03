@@ -96,7 +96,7 @@ module.exports = __webpack_require__(11);
 /***/ (function(module, exports) {
 
 var menuHeader = document.querySelector('.webedia__header__menu');
-var btnMenuHeader = menuHeader.querySelector('.webedia__header__menu__btn');
+var btnMenuHeader = document.querySelector('.webedia__header__menu__btn');
 var body = document.getElementsByTagName('body')[0];
 
 var handlerBtnMenuHeaderClick = function handlerBtnMenuHeaderClick(event) {

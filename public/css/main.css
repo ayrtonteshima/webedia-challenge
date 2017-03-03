@@ -134,6 +134,7 @@ table {
   margin: 10px 0;
   text-align: right;
   padding: 0 15px;
+  position: relative;
 }
 
 @media only screen and (min-width: 600px) {
@@ -162,9 +163,11 @@ table {
   color: #fff;
   display: block;
   position: absolute;
-  right: -55px;
+  top: 0;
+  left: 20px;
   outline: 0;
   border: 0;
+  z-index: 3;
 }
 
 .webedia__header__menu__btn:focus,
@@ -189,10 +192,12 @@ table {
     background-color: #f0f0f0;
     -webkit-transition: left .3s ease;
     transition: left .3s ease;
+    z-index: 2;
   }
 
   .webedia__header__menu.webedia__header__menu--opened {
     left: 0;
+    overflow-y: visible;
   }
 
   .webedia__header__menu__item {
@@ -246,18 +251,6 @@ table {
   text-decoration: none;
 }
 
-body {
-  background-color: #f0f0f0;
-  position: relative;
-  left: 0;
-  -webkit-transition: left .3s ease;
-  transition: left .3s ease;
-}
-
-body.opened {
-  left: 250px;
-}
-
 html,
 body {
   font: normal 90% arial, tahoma;
@@ -267,6 +260,69 @@ body {
   html,
   body {
     font-size: 100%;
+  }
+}
+
+body {
+  background-color: #f0f0f0;
+}
+
+body.opened {
+  overflow: hidden;
+  position: fixed;
+}
+
+body.opened .webedia {
+  left: 250px;
+}
+
+body.opened .webedia::after {
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  display: block;
+  position: absolute;
+  top: -10px;
+  left: 0;
+  background-color: #000;
+  opacity: .7;
+  z-index: 2;
+}
+
+@media only screen and (min-width: 600px) {
+  body.opened {
+    overflow: visible;
+    position: static;
+  }
+
+  body.opened .webedia {
+    left: 0;
+  }
+
+  body.opened .webedia::after {
+    display: none;
+  }
+}
+
+.webedia {
+  position: relative;
+  left: 0;
+  -webkit-transition: left .3s ease;
+  transition: left .3s ease;
+}
+
+.webedia::after {
+  content: "";
+  background-color: #000;
+  opacity: 0;
+  -webkit-transition: opacity .3s ease;
+  transition: opacity .3s ease;
+  display: block;
+}
+
+@media only screen and (min-width: 600px) {
+  .webedia::after {
+    display: none;
   }
 }
 

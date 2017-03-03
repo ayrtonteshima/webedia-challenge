@@ -1,13 +1,3 @@
-body {
-  background-color: #f0f0f0;
-  position: relative;
-  left: 0;
-  transition: left .3s ease;
-  &.opened {
-    left: 250px;
-  }
-}
-
 html, body {
   font: normal 90% arial, tahoma;
   @include grid-media($webedia__tablet) {
@@ -15,9 +5,63 @@ html, body {
   }
 }
 
-.webedia__container {
-  max-width: 1020px;
-  margin: 0 auto;
-  padding: 0 20px;
-  height: auto;
+body {
+  background-color: #f0f0f0;
+  &.opened {
+    overflow: hidden;
+    position: fixed;
+    .webedia {
+      left: 250px;
+      &::after {
+        width: 100vw;
+        height: 100vh;
+        content: "";
+        display: block;
+        position: absolute;
+        top: -10px;
+        left: 0;
+        background-color: #000;
+        opacity: .7;
+        z-index: 2;
+      }
+    }
+  }
+
+  @include grid-media($webedia__tablet) {
+    &.opened {
+      overflow: visible;
+      position: static;
+      .webedia {
+        left: 0;
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.webedia {
+  position: relative;
+  left: 0;
+  transition: left .3s ease;
+
+  &::after {
+    content: "";
+    background-color: #000;
+    opacity: 0;
+    transition: opacity .3s ease;
+    display: block;
+
+    @include grid-media($webedia__tablet) {
+      display: none;
+    }
+  }
+
+  &__container {
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: auto;
+  }
 }
